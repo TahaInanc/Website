@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bday</title>
+  <style>
+    :root { --pink: #ffd1e6; }
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      background: var(--pink);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .wrapper {
+      max-width: 900px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .header {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: nowrap;
+    }
+
+    .header img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    h1 {
+      margin: 0.25rem 0 1rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+    }
+
+    p {
+      margin: 0.25rem auto 0;
+      max-width: 60ch;
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 420px) {
+      .header img { width: 400px; height: 400px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrapper">
+    <div class="header" aria-label="Page title with images">
+      <!-- Replace the data URIs with your own image paths (e.g., left.png, right.png) -->
+      <img
+        src="left.jpg"
+        alt="Left decorative image" />
+
+      <h1>Happy Birthday!!!!</h1>
+
+      <img
+        src="right.jpg"
+        alt="Right decorative image" />
+    </div>
+
+    <p>
+      //todo : Vom herzen geschriebene gratulation oder so hier :
+    </p>
+  </main>
+</body>
+</html>
