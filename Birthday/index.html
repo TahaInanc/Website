@@ -15,6 +15,7 @@
       place-items: center;
       background: var(--pink);
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      padding: 1rem;
     }
 
     .wrapper {
@@ -24,52 +25,62 @@
     }
 
     .header {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
       gap: 1rem;
-      flex-wrap: nowrap;
+      flex-wrap: wrap; /* erlaubt Umbruch auf kleinen Screens */
     }
 
     .header img {
-      width: 56px;
-      height: 56px;
+      width: clamp(56px, 18vw, 100px); /* responsive Bildgröße */
+      height: auto;
       object-fit: contain;
       border-radius: 12px;
+      flex-shrink: 0;
     }
 
     h1 {
       margin: 0.25rem 0 1rem;
       font-weight: 800;
       letter-spacing: 0.5px;
-      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      flex: 1 1 100%; /* sorgt dafür, dass es bei Bedarf ganze Breite nimmt */
     }
 
     p {
-      margin: 0.25rem auto 0;
+      margin: 0.5rem auto 0;
       max-width: 60ch;
-      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
       line-height: 1.6;
     }
 
-    @media (max-width: 420px) {
-      .header img { width: 400px; height: 400px; }
+    @media (max-width: 480px) {
+      .wrapper {
+        padding: 1rem;
+      }
+
+      .header {
+        flex-direction: column; /* Bilder + Text übereinander */
+        gap: 0.5rem;
+      }
+
+      .header img {
+        width: 120px; /* feste angenehme Größe auf Handy */
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
 <body>
   <main class="wrapper">
     <div class="header" aria-label="Page title with images">
-      <!-- Replace the data URIs with your own image paths (e.g., left.png, right.png) -->
-      <img
-        src="left.jpg"
-        alt="Left decorative image" />
-
+      <img src="left.jpg" alt="Left decorative image" />
       <h1>Happy Birthday!!!!</h1>
-
-      <img
-        src="right.jpg"
-        alt="Right decorative image" />
+      <img src="right.jpg" alt="Right decorative image" />
     </div>
 
     <p>
